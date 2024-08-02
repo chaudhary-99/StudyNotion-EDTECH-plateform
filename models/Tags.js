@@ -3,15 +3,13 @@ const tagsSchema=new mongoose.Schema({
     name:{
         type:mongoose.Schema.Types.ObjectId,
         required:true,
-        ref:"User",
     },
-    de:{
-        type:Number,
-        required:true,
-    },
-    review:{
+    description:{
         type:String,
-        required:true,
+    },
+    course:{
+        type:mongoose.Schema.Types.ObjectId,
+        ref:"Course",
     },
 });
-module.exports= mongoose.model("tagsSchema",tagsSchema); 
+module.exports= mongoose.model("Tag",tagsSchema); 
