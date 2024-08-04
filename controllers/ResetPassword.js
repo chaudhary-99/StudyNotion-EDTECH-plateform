@@ -84,7 +84,7 @@ exports.resetPassword = async (res, req) => {
 
         //hash the password
         const hashedPassword = await bcrypt.hash(password, 10);
-        //update the password in db
+        //update the password in 
         await User.findOneAndUpdate({ token: token }, { password: hashedPassword }, { new: true },);
         return res.status(200).json({
             success: true,
@@ -98,6 +98,6 @@ exports.resetPassword = async (res, req) => {
         return res.status(400).json({
             success: false,
             message: "Something went wrong while reseting pwd",
-        })
+        });  
     }
 }
